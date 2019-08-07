@@ -3,14 +3,23 @@ body {
 }
 
 .container {
-  max-width: 700px;
+  max-width: 600px;
+  max-height: 600px;
 }
+
 
 h1, h2 {
   text-align: center;
-  margin: 0;
-  padding: 0;
+  margin: 100;
+  padding: 10;
 }
+
+h1 {
+    margin: 50;
+    padding: 0;
+    
+}
+
 
 table button {
   background-color: white;
@@ -22,6 +31,7 @@ table button {
   background-color: white;
   border: 2px solid green;
   border-radius: 5px;
+  padding: 2em 1em;
 }
 
 form button {
@@ -29,21 +39,38 @@ form button {
 }
 
 #loading-container {
-  width: 100vw;
-  height: 100vh;
+  
   background-color: rgba(200, 200, 200, 0.8);
+  background: #25FF00;
   display: flex;
-  flex-direction: row;
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  left: 0;
+  margin: 0 auto;
+  justify-content: center;
+  align-content: center;
+ 
+  
 }
+
 
 #loading-content {
   background-color: white;
   border: 2px solid green;
   border-radius: 5px;
   padding: 1em 2.8em 1em 3em;
-  position: relative;
+  position: fixed;
+
+}
+
+div#container {
+    border: 1px solid #FF0000;
+    height: 200px;
+    display: table;
+}
+div#content {
+    background: #25FF00;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#edit, #remove  {
+  width: 1px;
 }

@@ -24,13 +24,13 @@ function loadComputers() {
     .then(result => {
       var tbody = document.getElementById('rows')
       for (let c of result.data) {
-        let tr = tbody.children[0];
-        let clone = tr.cloneNode(true)
+        var tr = tbody.children[0];
+        var clone = tr.cloneNode(true)
         clone.children[0].innerText = c.name
         clone.children[1].innerText = `${c.price} €`
         clone.children[2].children[0].onclick = () => showDetails(c.id)
         clone.children[3].children[0].onclick = () => deleteComputer(c.id)
-
+        clone.style.display = "table-row";
         tbody.appendChild(clone)
       }
     })
@@ -41,8 +41,7 @@ function loadComputers() {
 function showDetails(id) {
   showDetailsSection()
   showLoader()
-  axios
-    .get('/get/' + id)
+  axios.get('/get/' + id)
     .then(success => ComputerBinder.toDom(success.data))
     .catch(err => alert(err))
     .finally(() => hideLoader())
@@ -51,8 +50,7 @@ function showDetails(id) {
 function put() {
   showLoader()
   var computer = ComputerBinder.fromDom()
-  axios
-    .put('/put', computer)
+  axios.put('/put', computer)
     .then(success => {
       alert('computer successfully saved!')
       location.reload()
@@ -75,6 +73,7 @@ function deleteComputer(id) {
 }
 
 function addComputer() {
+    document.getElementById('loading-container').style.display = 'flex'
 
 }
 
@@ -94,8 +93,8 @@ function hideDetailsSection() {
   document.getElementById('details').style.display = 'none'
 }
 
-function undo() {
-  hideDetailsSection()
+function undo(){
+    
 }
 
 window.onload = () => {
